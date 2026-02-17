@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Copy / Paste (Mac)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Прогресс (без верхнего текста/целей) -->
+  <div class="progress-wrap" aria-label="Прогресс">
+    <div class="progress-row">
+      <div class="progress-text">
+        Прогресс: <b><span id="progressCount">0</span>/<span id="progressTotal">10</span></b>
+        <span class="level">Уровень: <b id="levelText">1</b></span>
+      </div>
+      <button id="resetBtn" class="ghost" type="button">Сброс</button>
+    </div>
+    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <div class="main">
+    <button id="startButton" class="primary">СТАРТ</button>
+
+    <!-- Статус: тут будет инструкция или ВЕРНО/НЕВЕРНО -->
+    <div id="statusLine" class="statusLine" style="display:none;">Скопируй и вставь текст:</div>
+
+    <div class="game" id="gameContainer" style="display:none;">
+      <div class="task">
+        <div class="taskLabel">Текст для копирования:</div>
+        <div id="randomText" class="randomText"></div>
+      </div>
+
+      <div id="inputField" class="inputField" contenteditable="true" aria-label="Поле для вставки"></div>
+
+      <div class="keyboard" aria-label="Клавиатура">
+        <div class="key" id="cmdKey">⌘ Command</div>
+        <div class="key" id="cKey">C</div>
+        <div class="key" id="vKey">V</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WIN MODAL -->
+  <div class="modal-backdrop" id="winModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Победа">
+      <div class="modal-header">
+        <div class="modal-title">Победа! 🎉</div>
+        <button class="modal-close" id="closeModal" type="button" aria-label="Закрыть">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="win-image" id="winImage"></div>
+        <p class="modal-text">Навык копировать/вставить на Mac прокачан!</p>
+      </div>
+
+      <div class="modal-actions">
+        <button id="restartButton" class="primary" type="button">РЕСТАРТ</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
